@@ -43,7 +43,25 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'global' => [
+           'web','auth', 'verified'
+        ],
+
+        'admin' => [
+           'global', 'admin.auth'
+        ],
+
+        'seller' => [
+           'global', 'seller.auth'
+        ],
+
+        'customer' => [
+           'global', 'customer.auth'
+        ],
     ];
+
+
 
     /**
      * The application's route middleware.
@@ -62,5 +80,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'admin.auth' => \App\Http\Middleware\isAdmin::class,
+        'customer.auth' => \App\Http\Middleware\isCustomer::class,
+        'seller.auth' => \App\Http\Middleware\isSeller::class,
     ];
 }

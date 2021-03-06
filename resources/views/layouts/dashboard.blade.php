@@ -1,9 +1,10 @@
 @include('components.dashboard.header')
-<body class="authentication-bg">
-    <div class="account-pages my-5" id="app">
-        @yield('auth')
-    </div>
-    @include('components.dashboard.footer')
-    @yield('script')
-</body>
-</html>
+<!-- Page Container START -->
+<div class="page-container">
+    @include('partials.dashboard.breadcrumb')
+    @yield('dashboard')
+</div>
+</div>
+@include('partials.dashboard.search')
+@include('partials.dashboard.quick-view')
+@include('components.dashboard.footer')
