@@ -1,3 +1,5 @@
+/public/css/dashboard/scss
+/public/mix-manifest.json
 README.md
 /node_modules
 /public/hot
@@ -12,3 +14,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+tests

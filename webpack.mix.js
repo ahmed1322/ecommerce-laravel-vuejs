@@ -17,4 +17,4 @@ mix.js('resources/js/app-vue.js', 'public/js').vue();
 
 mix.sass('resources/scss/app.scss', 'public/css');
 
-mix.sass('resources/scss/dashboard.scss', 'public/css/dashboard');
+mix.sass('public/css/dashboard/scss/dashboard.scss', 'public/css/dashboard');

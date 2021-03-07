@@ -34448,13 +34448,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/scss/dashboard.scss":
-/*!***************************************!*\
-  !*** ./resources/scss/dashboard.scss ***!
-  \***************************************/
-/***/ (() => {
+/***/ "./public/css/dashboard/scss/dashboard.scss":
+/*!**************************************************!*\
+  !*** ./public/css/dashboard/scss/dashboard.scss ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nError: Can't resolve './dashboard/ui-elements/fonts/anticon.eot' in 'C:\\xampp\\htdocs\\ecommerce-laravel\\resources\\scss'\n    at finishWithoutResolve (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:293:18)\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:362:15\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:14:1)\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:25:1)\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:87:43\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:13:1)\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:14:1)\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:25:1)\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:87:43\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:14:1)\n    at processResult (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\webpack\\lib\\NormalModule.js:598:19)\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\webpack\\lib\\NormalModule.js:692:5\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\xampp\\htdocs\\ecommerce-laravel\\node_modules\\css-loader\\dist\\index.js:155:5)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -37381,7 +37384,7 @@ process.umask = function() { return 0; };
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/app.js"],
 /******/ 			["./resources/scss/app.scss"],
-/******/ 			["./resources/scss/dashboard.scss"]
+/******/ 			["./public/css/dashboard/scss/dashboard.scss"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
 /******/ 		
