@@ -50,8 +50,7 @@ class SellerMiddlewareTest extends TestCase
     }
 
     /**
-     * only seller which has credibility can access sellers area
-     * credibility Middleware [ auth, verified, isSeller ]
+     * only verified seller can access seller routes
      *
      * @return void
      */
