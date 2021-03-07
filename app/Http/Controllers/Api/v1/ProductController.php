@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Controllers\Controller;
+use App\Models\Seller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Traits\Apis\ApiResponseGenratorTrait;
+use App\Http\Requests\APi\Products\CreateProductRequest;
 
 class ProductController extends Controller
 {
+    use ApiResponseGenratorTrait;
     /**
      * Display a listing of the resource.
      *
@@ -34,9 +38,10 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request, Seller $seller)
     {
-        //
+        $request->user()->products()->create($request->validated());
+        return $this->statusCode(201)->createdMsg("New Product Created successfully!");
     }
 
     /**
