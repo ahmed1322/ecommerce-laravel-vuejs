@@ -2,6 +2,6 @@
 
 namespace App\Models;
 
-class Seller extends User
+class Customer extends User
 {
 }

@@ -16,6 +16,8 @@ class isSeller
      */
     public function handle(Request $request, Closure $next)
     {
+        abort_unless($request->user()->canAccessSpecificArea( ['seller'] ), 401);
+
         return $next($request);
     }
 }

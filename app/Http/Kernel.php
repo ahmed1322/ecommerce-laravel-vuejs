@@ -45,19 +45,24 @@ class Kernel extends HttpKernel
         ],
 
         'global' => [
-           'web','auth', 'verified'
+           'web',
+           'auth',
+           'verified'
         ],
 
         'admin' => [
-           'global', 'admin.auth'
+           'global',
+           'admin.auth',
         ],
 
         'seller' => [
-           'global', 'seller.auth'
+            'global',
+            'seller.auth'
         ],
 
         'customer' => [
-           'global', 'customer.auth'
+           'global',
+           'customer.auth'
         ],
     ];
 

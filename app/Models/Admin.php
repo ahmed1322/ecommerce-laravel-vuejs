@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
-class Seller extends User
+class Admin extends User
 {
 }
