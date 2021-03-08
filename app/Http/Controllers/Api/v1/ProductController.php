@@ -7,6 +7,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Traits\Apis\ApiResponseGenratorTrait;
+use App\Http\Resources\Product\ProductResource;
+use App\Http\Resources\Product\ProductCollection;
 use App\Http\Requests\APi\Products\CreateProductRequest;
 
 class ProductController extends Controller
@@ -19,7 +21,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return $this->statusCode(200)
+        ->retrievData(request()->user()->products()->get()->toArray());
+
+        /*
+
+        dd(request()->user()->products()->get()->toArray());
+        return $this->statusCode(200)
+                ->retrievData( request()->user()->products()->get()->toArray() );
+        */
     }
 
     /**

@@ -3,16 +3,20 @@
 namespace Tests\Feature\Product;
 
 use Tests\TestCase;
+use App\Models\Product;
 use Tests\Traits\ActingAsTrait;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\Traits\Apis\ApiResponseGenratorTrait;
+use App\Http\Resources\Product\ProductResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductTest extends TestCase
 {
-    use ActingAsTrait, RefreshDatabase;
+    use ActingAsTrait,ApiResponseGenratorTrait, RefreshDatabase;
 
     private $product_data;
     private $errors_msg;
+    private $http_status_code = 422;
 
     /**
      * cannot create product with out providing a name
@@ -77,6 +81,21 @@ class ProductTest extends TestCase
 
     }
 
+    public function test_return_seller_products()
+    {
+        $this->withoutExceptionHandling();
+
+        $seller = $this->createSellerMultipleProducts();
+
+        $this->json( 'GET', route('api.products.index') )->assertJson(
+            [
+                'data'=> $seller->products()->get()->toArray()
+            ],
+            200
+        )->assertOk();
+
+    }
+
 
     private function overrideProductData( array $override_current_data = [] )
     {
@@ -112,8 +131,39 @@ class ProductTest extends TestCase
         $response = $this->postJson(route('api.products.store'), $this->product_data );
 
         $response
-        ->assertStatus(422)
-        ->assertJson($this->errors_msg );
+        ->assertStatus($this->http_status_code)
+        ->assertJson( $this->errors_msg );
 
+    }
+
+    public function createSellerMultipleProducts()
+    {
+        // acting as seller
+        $seller = $this->acting_as_seller();
+
+        $this->actingAs($seller);
+
+        // Store many prodcut
+        ProductResource::collection(Product::factory()->count(3)->make())
+        ->map(function ($product) use( $seller ) {
+
+            $this->actingAs($seller);
+
+            $response = $this->postJson(route('api.products.store'), [
+                "name" => $product->name,
+                "color" => $product->color,
+                "size" => $product->size,
+                "stock_quantity" => $product->stock_quantity,
+                "availability" => $product->availability
+            ]);
+
+            $response
+            ->assertStatus(201)
+            ->assertJson( [
+                'msg' => "New Product Created successfully!"
+            ] );
+        });
+
+        return $seller;
     }
 }

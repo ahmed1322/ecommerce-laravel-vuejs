@@ -16,11 +16,22 @@ trait ApiResponseGenratorTrait
         );
     }
 
+    public function retrievData(array $data)
+    {
+        return response()->json(
+            [
+                'data'=> $data
+            ],
+            $this->status_code
+        );
+    }
+
     protected function statusCode(int $status_code)
     {
         $this->status_code = $status_code;
 
         return $this;
     }
+
 
 }
