@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post( '/products/upload/{product}' , [ App\Http\Controllers\Api\v1\ProductController::class, 'upload' ] );
 Route::apiResource('/products', ProductController::class);
+// Route::get('/products/{productId}', [App\Http\Controllers\Api\v1\ProductController::class, 'singleProduct'])->name('products.single');

@@ -7,11 +7,13 @@
     <title>Enlink - Admin Dashboard Template</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png">
+    {{-- <link rel="shortcut icon" href="assets/images/logo/favicon.png"> --}}
 
     <!-- page css -->
 
     <!-- Core css -->
     <link href="{{ asset('css/dashboard/dashboard.min.css') }}" rel="stylesheet">
+
+    @yield('styles')
 
 </head>

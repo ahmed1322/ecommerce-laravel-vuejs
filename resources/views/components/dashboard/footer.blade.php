@@ -6,7 +6,7 @@
 
 <!-- Core JS -->
 <script src="{{ asset('js/dashboard/dashboard.min.js') }}"></script>
-@yield('script')
+@yield('scripts')
 </body>
 
 </html>

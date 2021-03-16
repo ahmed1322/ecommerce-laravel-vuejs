@@ -1,6 +1,6 @@
 @include('components.dashboard.header')
 <!-- Page Container START -->
-<div class="page-container">
+<div class="page-container" id="app">
     @include('partials.dashboard.breadcrumb')
     @yield('dashboard')
 </div>

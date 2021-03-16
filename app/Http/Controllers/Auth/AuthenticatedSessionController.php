@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Traits\Apis\AuthApiResponseTrait;
 
 class AuthenticatedSessionController extends Controller
 {
+    use AuthApiResponseTrait;
     /**
      * Display the login view.
      *
@@ -32,7 +34,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return $this->authenticated($request, $this->guard()->user());
     }
 
     /**
@@ -50,5 +52,39 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    private function authenticated(Request $request, $user)
+    {
+        if( $user->canAccessSpecificArea([ 'seller' ]) ) {
+            return $this->setStatusCode(200)
+                ->setRoute(route('seller.products.index'))
+                ->setApiAccessToken($user)
+                ->logedinSuccessfully();
+
+        }
+
+        return $this->setStatusCode(200)
+                ->setRoute(route('home'))
+                ->setApiAccessToken($user)
+                ->logedinSuccessfully();
+
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard();
     }
 }

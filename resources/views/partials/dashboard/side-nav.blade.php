@@ -58,6 +58,10 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route('logout') }}">Logout</a>
+            </li>
         </ul>
     </div>
 </div>

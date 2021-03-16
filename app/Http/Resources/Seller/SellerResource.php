@@ -2,8 +2,10 @@
 
 namespace App\Http\Resources\Seller;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Product\ProductResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Product\ProductCollection;
 
 class SellerResource extends JsonResource
 {
@@ -16,8 +18,10 @@ class SellerResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'name' => $this->name,
-            'products' => ProductResource::collection($this->products),
+            'products' => $this->when( ! Auth::user()->canAccessSpecificArea( [ 'seller' ] ), new ProductCollection( $this->products ) ),
+            'products_count' => $this->products->count()
         ];
     }
 }

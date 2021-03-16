@@ -25,6 +25,7 @@ class CreateProductRequest extends FormRequest
     {
         return [
             'name' => [ 'required', 'unique:products,name', 'max:255' ],
+            'price' => [ 'required', 'numeric' ,'regex:/^(?:d*.d{1,2}|d+)$/'],
             'color' => [ 'required' ],
             'size' => [ 'required' ],
             'stock_quantity' => [ 'required', 'integer' ],
@@ -43,6 +44,8 @@ class CreateProductRequest extends FormRequest
             'name.required' => 'Product Name is Missing',
             'name.unique' => 'Product Already Exists',
             'name.max' => 'Product Name must be 255 Charcters max',
+            'price.required' => 'Product Price is Missing',
+            'price.regex' => 'Silly You :(',
             'color.required' => 'Product Color is Missing',
             'size.required' => 'Product Size is Missing',
             'stock_quantity.required' => 'Stock Quantity is Missing',

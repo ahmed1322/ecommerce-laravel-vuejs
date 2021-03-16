@@ -18,14 +18,24 @@ class ProductResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'price' => $this->price,
             'color' => $this->color,
             'size' => $this->size,
             'stock_quantity' => $this->stock_quantity,
             'availability' => $this->availability,
-            'seller' => SellerResource::collection($this->seller),
-
-            // 'seller_id' => $this->seller->id,
-            // 'seller_name' => $this->seller->name
+            'product_cover' => $this->when( ! empty( $this->getMedia('product_cover')->first() ) , function () {
+                return $this->getMedia('product_cover')->first()->getUrl();
+            }),
+            'product_gallery' => $this->getMedia('product_gallery')
+                                    ->map( function( $product_image ) {
+                                        return $product_image->getUrl();
+                                    }),
+            'edit_route' => route('seller.products.edit', $this->id),
+            'delete_route' => route('api.products.destroy', $this->id),
+            'update_route' => route('api.products.update', $this->id),
+            'seller' => [
+                'name' => $this->seller->name,
+            ]
         ];
     }
 }

@@ -15,12 +15,13 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('seller_id')->constrained('users');
+            $table->foreignId('created_by_user')->constrained('users');
             $table->string('name')->unique();
+            $table->double('price', 8, 2);
             $table->text('color');
             $table->text('size');
             $table->text('stock_quantity');
-            $table->text('availability');
+            $table->boolean('availability')->change();
             $table->timestamps();
         });
     }

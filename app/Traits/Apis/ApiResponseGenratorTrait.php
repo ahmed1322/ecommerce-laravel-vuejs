@@ -16,7 +16,7 @@ trait ApiResponseGenratorTrait
         );
     }
 
-    public function retrievData(array $data)
+    public function created(array $data)
     {
         return response()->json(
             [
@@ -24,6 +24,11 @@ trait ApiResponseGenratorTrait
             ],
             $this->status_code
         );
+    }
+
+    public function retrievData($data)
+    {
+        return response()->json( [ 'status' => $this->status_code, 'data'=> $data], $this->status_code );
     }
 
     protected function statusCode(int $status_code)

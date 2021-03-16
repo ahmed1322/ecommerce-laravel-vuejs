@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Seller;
 
-use App\Http\Controllers\Controller;
+use Excption;
 use App\Models\Seller;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Exceptions\NotProductOwner;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -54,11 +57,15 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Seller  $seller
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response Product
      */
-    public function edit(Seller $seller)
+    public function edit($product)
     {
-        //
+        if( ! $product = Product::find($product) ){
+            throw new NotProductOwner;
+        }
+
+        return view( 'dashboard.product.create-update', [ 'product' => $product ] );
     }
 
     /**
