@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->text('color');
             $table->text('size');
             $table->text('stock_quantity');
-            $table->boolean('availability')->change();
+            $table->boolean('availability');
             $table->timestamps();
         });
     }

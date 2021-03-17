@@ -23,10 +23,10 @@ class SaleFactory extends Factory
      */
     public function definition()
     {
-        $prduct = Product::all()->random(1);
+        $product = Product::all()->random(1);
         return [
-           'product_id' => $prduct->pluck('id')->first(),
-            'sale_price' => $prduct->pluck('price')->first(),
+           'product_id' => $product->pluck('id')->first(),
+            'sale_price' => $product->pluck('price')->first(),
             'was_on_sale' => $this->faker->randomElement([1,0]),
         ];
     }
