@@ -29,9 +29,7 @@ class ProductFactory extends Factory
             'size' => $this->faker->randomElement(['sm,lg','lg,md','md,xl','lg,xl,xxl','md,xl,xxl']),
             'stock_quantity' => $this->faker->randomElement([10,20,30,40]),
             'availability' => $this->faker->randomElement([1,0]),
-            'created_by_user' => User::all()->filter( function( $user ){
-                return $user->canAccessSpecificArea( ['seller'] );
-            })->random(1)->pluck('id')->first()
+            'created_by_user' => User::where('name' , 'LIKE', '%seller%')->get()->random(1)->pluck('id')->first()
         ];
     }
 

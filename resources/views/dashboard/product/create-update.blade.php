@@ -4,13 +4,5 @@
 @endsection
 
 @section('dashboard')
-    {{-- @dump($product->getMedia('product_images')) --}}
-    <create-update-product
-        product_route={{ route('api.products.show', $product->id) }}
-        update_product_route={{ route('api.products.update', $product->id) }}
-        ></seller-products>
-@endsection
-
-@section('scripts')
-    <script src="{{ asset('js/app-vue.js') }}"></script>
+    <h1>Hello {{ auth()->user()->name }}</h1>
 @endsection
