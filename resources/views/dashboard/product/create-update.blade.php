@@ -11,6 +11,3 @@
         ></seller-products>
 @endsection
 
-@section('scripts')
-    <script src="{{ asset('js/app-vue.js') }}"></script>
-@endsection
