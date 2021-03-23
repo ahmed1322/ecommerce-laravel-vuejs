@@ -15,7 +15,7 @@ class RoleUserSeeder extends Seeder
      */
     public function run()
     {
-        $roles = Role::all();
+        $roles = Role::where('name' , 'seller')->get();
 
         User::where('name' , 'LIKE', '%seller%')->each( function( $user ) use( $roles ) {
             $user->roles()->attach($roles->random(1)->pluck('id'));

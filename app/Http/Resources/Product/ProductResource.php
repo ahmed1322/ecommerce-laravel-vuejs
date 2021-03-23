@@ -23,9 +23,7 @@ class ProductResource extends JsonResource
             'size' => $this->size,
             'stock_quantity' => $this->stock_quantity,
             'availability' => $this->availability,
-            'product_cover' => $this->when( ! empty( $this->getMedia('product_cover')->first() ) , function () {
-                return $this->getMedia('product_cover')->first()->getUrl();
-            }),
+            'product_cover' => $this->getMedia('product_cover')->first() ? $this->getMedia('product_cover')->first()->getUrl() : NULL,
             'product_gallery' => $this->getMedia('product_gallery')
                                     ->map( function( $product_image ) {
                                         return $product_image->getUrl();

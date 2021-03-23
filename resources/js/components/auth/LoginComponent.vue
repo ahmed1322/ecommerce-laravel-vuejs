@@ -141,8 +141,8 @@
 </template>
 
 <script>
-// import axios from "axios";
-import login from '../../Apis/auth/login.js';
+import axios from "axios";
+// import login from '../../Apis/auth/login.js';
 export default {
     name: "LoginComponent",
 
@@ -171,7 +171,7 @@ export default {
         },
 
         attemptLogin() {
-            login(this.form)
+            axios.post("/login", this.form)
                 .then(response => {
                     console.log(response);
                     localStorage.setItem("access_token", response.data.access_token);

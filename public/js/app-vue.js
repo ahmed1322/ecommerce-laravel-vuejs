@@ -1845,7 +1845,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Apis_auth_login_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Apis/auth/login.js */ "./resources/js/Apis/auth/login.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1988,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import axios from "axios";
+ // import login from '../../Apis/auth/login.js';
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "LoginComponent",
@@ -2012,7 +2013,7 @@ __webpack_require__.r(__webpack_exports__);
     attemptLogin: function attemptLogin() {
       var _this = this;
 
-      (0,_Apis_auth_login_js__WEBPACK_IMPORTED_MODULE_0__.default)(this.form).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/login", this.form).then(function (response) {
         console.log(response);
         localStorage.setItem("access_token", response.data.access_token);
         window.location.href = response.data.route;
@@ -2895,57 +2896,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Apis/api.js":
-/*!**********************************!*\
-  !*** ./resources/js/Apis/api.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-var BaseApi = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-  baseURL: "http://127.0.0.1:8000"
-});
-
-var Api = function Api() {
-  var token = localStorage.getItem("access_token");
-
-  if (token) {
-    BaseApi.defaults.headers.common["Authorization"] = "Bearer ".concat(token);
-  }
-
-  return BaseApi;
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Api);
-
-/***/ }),
-
-/***/ "./resources/js/Apis/auth/login.js":
-/*!*****************************************!*\
-  !*** ./resources/js/Apis/auth/login.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./resources/js/Apis/api.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (form) {
-  return (0,_api__WEBPACK_IMPORTED_MODULE_0__.default)().post("/login", form);
-});
-
-/***/ }),
-
 /***/ "./node_modules/bs-dropzone/dist/min/dropzone.min.js":
 /*!***********************************************************!*\
   !*** ./node_modules/bs-dropzone/dist/min/dropzone.min.js ***!
@@ -3047,7 +2997,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dropzone .dz-preview {\n    margin: 5px;\n    width: 45%;\n    border: 1px solid #bdbdbd;\n    min-height: auto;\n}\n.dropzone .dz-preview .dz-image {\n    border-radius: 0;\n}\n.dropzone .dz-preview .dz-image {\n    width: 100%;\n    height: 100%;\n}\n.dropzone .dz-preview .dz-image img {\n    display: block;\n    width: 100%;\n}\n.dropzone .dz-preview .dz-remove {\n    position: absolute;\n    top: -8px;\n    left: -14px;\n    z-index: 10;\n    width: 30px;\n    height: 25px;\n    border-radius: 10px;\n    font-size: 20px;\n    overflow: hidden;\n}\n.dropzone .dz-preview .dz-remove:before {\n    content: '\\f057';\n    font-family: \"Font Awesome 5 Free\";\n    display: block;\n    width: 100%;\n    margin-right: 5px;\n    color: #f00;\n}\n.dropzone .dz-preview .dz-progress{\n    opacity: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dropzone .dz-preview {\r\n    margin: 5px;\r\n    width: 45%;\r\n    border: 1px solid #bdbdbd;\r\n    min-height: auto;\n}\n.dropzone .dz-preview .dz-image {\r\n    border-radius: 0;\n}\n.dropzone .dz-preview .dz-image {\r\n    width: 100%;\r\n    height: 100%;\n}\n.dropzone .dz-preview .dz-image img {\r\n    display: block;\r\n    width: 100%;\n}\n.dropzone .dz-preview .dz-remove {\r\n    position: absolute;\r\n    top: -8px;\r\n    left: -14px;\r\n    z-index: 10;\r\n    width: 30px;\r\n    height: 25px;\r\n    border-radius: 10px;\r\n    font-size: 20px;\r\n    overflow: hidden;\n}\n.dropzone .dz-preview .dz-remove:before {\r\n    content: '\\f057';\r\n    font-family: \"Font Awesome 5 Free\";\r\n    display: block;\r\n    width: 100%;\r\n    margin-right: 5px;\r\n    color: #f00;\n}\n.dropzone .dz-preview .dz-progress{\r\n    opacity: 0;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

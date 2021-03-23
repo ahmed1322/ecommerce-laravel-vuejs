@@ -1877,7 +1877,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 var token = localStorage.getItem("access_token");
 
 if (token) {
-  BaseApi.defaults.headers.common["Authorization"] = "Bearer ".concat(token);
+  window.axios.defaults.headers.common["Authorization"] = "Bearer ".concat(token);
 }
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
