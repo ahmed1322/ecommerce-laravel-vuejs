@@ -19,4 +19,12 @@ class Sale extends Model
         'sale_price',
         'was_on_sale',
     ];
+
+    /**
+     * Get the product that owns the sales.
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 }

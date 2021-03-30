@@ -33,7 +33,7 @@ class ProductCollection extends ResourceCollection
     {
         return [
                 'response' => $this->collection,
-                'links' => $this->pagination(),
+                // 'links' => $this->pagination(),
             ];
     }
 }

@@ -28,6 +28,7 @@ class SaleFactory extends Factory
            'product_id' => $product->pluck('id')->first(),
             'sale_price' => $product->pluck('price')->first(),
             'was_on_sale' => $this->faker->randomElement([1,0]),
+            'created_at' => $this->faker->dateTimeBetween($startDate = '-5 month', $endDate = 'now', $timezone = null)
         ];
     }
 }

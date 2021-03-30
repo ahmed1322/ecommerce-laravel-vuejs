@@ -10,10 +10,10 @@
     {{-- <link rel="shortcut icon" href="assets/images/logo/favicon.png"> --}}
 
     <!-- page css -->
-
+    @yield('styles')
     <!-- Core css -->
     <link href="{{ asset('css/dashboard/dashboard.min.css') }}" rel="stylesheet">
 
-    @yield('styles')
+
 
 </head>
